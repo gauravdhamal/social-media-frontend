@@ -2,7 +2,7 @@ import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
-// http://localhost:8888/
+// let commonUrl = "http://localhost:8888/";
 let commonUrl = "https://social-media-backend-production-a70f.up.railway.app/";
 
 // Create/Update open close function start
@@ -134,6 +134,7 @@ let updateUser = (userObject) => {
         window.alert(`User not found with Id : ${userObject.id}`);
       } else {
         window.alert(`User updated.`);
+        main();
       }
     });
 };
@@ -154,6 +155,18 @@ async function getAllUsers() {
     return data;
   }
 }
+
+let oldbio = document.getElementById("oldbio");
+let oldname = document.getElementById("oldname");
+
+let dynamicUserUpdateForm = document.getElementById("dynamicUserUpdateForm");
+
+let updateUserDynamic = document.getElementById("updateUserDynamic");
+
+let closeDynamicUpdateUser = document.getElementById("closeDynamicUpdateUser");
+closeDynamicUpdateUser.addEventListener("click", () => {
+  updateUserDynamic.style.display = "none";
+});
 
 let appendUsers = (arrayOfUsers) => {
   let userTableBody = document.getElementById("userTableBody");
@@ -207,6 +220,34 @@ let appendUsers = (arrayOfUsers) => {
       let userId = idCell.textContent;
       getUserById(userId).then((user) => {
         console.log("user:", user);
+        updateUserDynamic.style.display = "block";
+        oldbio.innerText = user.bio;
+        oldname.innerText = user.name;
+        dynamicUserUpdateForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          let formData = new FormData(event.target);
+
+          let updatedName = formData.get("newname");
+          let updatedBio = formData.get("newbio");
+
+          let userObject = {
+            id: 0,
+            name: "someContent",
+            bio: "someBio",
+          };
+
+          userObject.id = user.id;
+          userObject.name = updatedName;
+          userObject.bio = updatedBio;
+
+          console.log("userObject:", userObject);
+
+          updateUser(userObject);
+          oldbio.innerText = "";
+          oldname.innerText = "";
+          updateUserDynamic.style.display = "none";
+        });
       });
     });
 

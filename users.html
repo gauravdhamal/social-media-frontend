@@ -140,12 +140,7 @@
       <form id="dynamicUserUpdateForm" class="forms">
         <div class="formHeader">
           <h1>Update User</h1>
-          <button id="closeUpdateUser">X</button>
-        </div>
-
-        <div class="formBody">
-          <label for="oldbio">Old Bio : </label>
-          <p id="oldbio" style="border: none"></p>
+          <button id="closeDynamicUpdateUser">X</button>
         </div>
 
         <div class="formBody">
@@ -154,13 +149,18 @@
         </div>
 
         <div class="formBody">
-          <label for="newbio">New Bio : </label>
-          <p id="newbio" style="border: none"></p>
+          <label for="oldbio">Old Bio : </label>
+          <p id="oldbio" style="border: none"></p>
         </div>
 
         <div class="formBody">
           <label for="newname">New Name : </label>
-          <p id="newname" style="border: none"></p>
+          <input type="text" name="newname" id="newname" required />
+        </div>
+
+        <div class="formBody">
+          <label for="newbio">New Bio : </label>
+          <input type="text" name="newbio" id="newbio" required />
         </div>
 
         <div>
