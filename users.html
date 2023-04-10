@@ -14,7 +14,8 @@
       }
 
       #createUserDiv,
-      #updateUserDiv {
+      #updateUserDiv,
+      #updateUserDynamic {
         display: none;
       }
     </style>
@@ -133,6 +134,39 @@
         </thead>
         <tbody id="userTableBody"></tbody>
       </table>
+    </div>
+
+    <div id="updateUserDynamic">
+      <form id="dynamicUserUpdateForm" class="forms">
+        <div class="formHeader">
+          <h1>Update User</h1>
+          <button id="closeUpdateUser">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="oldbio">Old Bio : </label>
+          <p id="oldbio" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="oldname">Old Name : </label>
+          <p id="oldname" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="newbio">New Bio : </label>
+          <p id="newbio" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="newname">New Name : </label>
+          <p id="newname" style="border: none"></p>
+        </div>
+
+        <div>
+          <input class="formsInput" type="submit" />
+        </div>
+      </form>
     </div>
   </body>
 </html>

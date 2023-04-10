@@ -9,7 +9,8 @@
     <title>Posts page</title>
     <style>
       #createPostDiv,
-      #updatePostDiv {
+      #updatePostDiv,
+      #updatePostDynamic {
         display: none;
       }
     </style>
@@ -97,19 +98,24 @@
     </div>
 
     <div id="updatePostDynamic">
-      <form id="dynamicPostUpdateForm">
-        <div>
-          <label for="oldcontent">Old Content : </label>
-          <input type="text" name="oldcontent" id="oldcontent" readonly />
+      <form id="dynamicPostUpdateForm" class="forms">
+        <div class="formHeader">
+          <h1>Update Post</h1>
+          <button id="closeUpdateUser">X</button>
         </div>
 
-        <div>
+        <div class="formBody">
+          <label for="oldcontent">Old Content : </label>
+          <p id="oldcontent" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
           <label for="newcontent">New Content : </label>
           <input type="text" name="newcontent" id="newcontent" required />
         </div>
 
         <div>
-          <input type="submit" value="Update" />
+          <input class="formsInput" type="submit" value="Update" />
         </div>
       </form>
     </div>

@@ -2,7 +2,7 @@ import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
-let commonUrl = "http://localhost:8888/";
+let commonUrl = "https://social-media-backend-production-a70f.up.railway.app/";
 
 let createPostButton = document.getElementById("createPostButton");
 let updatePostButton = document.getElementById("updatePostButton");
@@ -151,6 +151,15 @@ async function getAllPosts() {
   }
 }
 
+let updatePostDynamic = document.getElementById("updatePostDynamic");
+
+let dynamicPostUpdateForm = document.getElementById("dynamicPostUpdateForm");
+
+let closeUpdateUser = document.getElementById("closeUpdateUser");
+closeUpdateUser.addEventListener("click", () => {
+  updatePostDynamic.style.display = "none";
+});
+
 let appendPosts = (arrayOfPosts) => {
   let postTableBody = document.getElementById("postTableBody");
   postTableBody.innerHTML = "";
@@ -190,16 +199,38 @@ let appendPosts = (arrayOfPosts) => {
     const editButton = document.createElement("button");
     editButton.setAttribute("class", "tableButton");
     editButton.textContent = "Edit";
+    editButton.style.backgroundColor = "green";
+    editButton.style.border = "green";
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("class", "tableButton");
     deleteButton.textContent = "Delete";
+    deleteButton.style.backgroundColor = "red";
+    deleteButton.style.border = "red";
     actionCell.append(editButton, " / ", deleteButton);
     row.appendChild(actionCell);
     editButton.addEventListener("click", () => {
+      updatePostDynamic.style.display = "block";
       let postId = idCell.textContent;
       getPostById(postId).then((post) => {
-        //   console.log("post:", post);
-        fillForm(post);
+        oldcontent.innerText = post.content;
+        dynamicPostUpdateForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          let formData = new FormData(event.target);
+
+          let content = formData.get("newcontent");
+
+          let postObject = {
+            id: 0,
+            content: "someContent",
+          };
+
+          postObject.id = post.id;
+          postObject.content = content;
+
+          updatePost(postObject);
+          content.textContent = "";
+        });
       });
     });
 
@@ -218,9 +249,13 @@ let appendPosts = (arrayOfPosts) => {
     const likeButton = document.createElement("button");
     likeButton.setAttribute("class", "tableButton");
     likeButton.textContent = "Like";
+    likeButton.style.backgroundColor = "green";
+    likeButton.style.border = "green";
     const unlikeButton = document.createElement("button");
     unlikeButton.setAttribute("class", "tableButton");
     unlikeButton.textContent = "Unlike";
+    unlikeButton.style.backgroundColor = "red";
+    unlikeButton.style.border = "red";
     likeUnlikeCell.append(likeButton, " / ", unlikeButton);
     row.appendChild(likeUnlikeCell);
     likeButton.addEventListener("click", () => {
@@ -340,15 +375,4 @@ async function asignPostToUser(postId, userId) {
     let data = await response.json();
     window.alert(data.details);
   }
-}
-
-let dynamicPostUpdateForm = document.getElementById("dynamicPostUpdateForm");
-let oldId = document.getElementById("oldid");
-
-function fillForm(post) {
-  let formData = new FormData(dynamicPostUpdateForm);
-
-  let id = formData.get("id");
-  oldId.innerText = post.id;
-  console.log("oldId:", oldId);
 }

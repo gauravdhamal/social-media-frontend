@@ -2,7 +2,8 @@ import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
-let commonUrl = "http://localhost:8888/";
+// http://localhost:8888/
+let commonUrl = "https://social-media-backend-production-a70f.up.railway.app/";
 
 // Create/Update open close function start
 let createUserButton = document.getElementById("createUserButton");
@@ -193,9 +194,13 @@ let appendUsers = (arrayOfUsers) => {
     const editButton = document.createElement("button");
     editButton.setAttribute("class", "tableButton");
     editButton.textContent = "Edit";
+    editButton.style.backgroundColor = "green";
+    editButton.style.border = "green";
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("class", "tableButton");
     deleteButton.textContent = "Delete";
+    deleteButton.style.backgroundColor = "red";
+    deleteButton.style.border = "red";
     actionCell.append(editButton, " / ", deleteButton);
     row.appendChild(actionCell);
     editButton.addEventListener("click", () => {
