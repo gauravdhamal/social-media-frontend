@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <title>User Analytics</title>
+    <style>
+      #topFivePosts,
+      #getAllPosts {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div id="mainContent" class="mainContent">
+      <button id="fetchAllPostsButton">Get all Posts</button>
+      <button id="getTopFiveMostLikedPostsButton">
+        Top 5 most liked posts
+      </button>
+    </div>
+
+    <div id="topFivePosts">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Content</th>
+            <th>Likes</th>
+          </tr>
+        </thead>
+        <tbody id="topPostTableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="getAllPosts">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Content</th>
+            <th>Likes</th>
+          </tr>
+        </thead>
+        <tbody id="getAllPostTableBody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<script src="scripts/postanalytics.js" type="module"></script>

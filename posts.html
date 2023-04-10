@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <title>Posts page</title>
+    <style>
+      #createPostDiv,
+      #updatePostDiv {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="createupdatebuttons">
+      <button id="createPostButton">Create Post</button>
+      <button id="updatePostButton">Update Post</button>
+    </div>
+
+    <div id="createPostDiv">
+      <form id="postPostForm" class="forms">
+        <div class="formHeader">
+          <h1>Create Post</h1>
+          <button id="closeCreatePost">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="content">Content : </label>
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="Write your content..."
+            required
+          />
+        </div>
+
+        <div><input class="formsInput" type="submit" value="Create" /></div>
+      </form>
+    </div>
+
+    <div id="updatePostDiv">
+      <form id="postUpdateForm" class="forms">
+        <div class="formHeader">
+          <h1>Update Post</h1>
+          <button id="closeUpdatePost">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="id">Id : </label>
+          <input
+            type="number"
+            name="id"
+            id="id"
+            placeholder="Enter Post ID"
+            required
+          />
+        </div>
+
+        <div class="formBody">
+          <label for="content">Updated Content : </label>
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="Write your updated content..."
+            required
+          />
+        </div>
+
+        <div>
+          <input class="formsInput" type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+
+    <div id="getAllPosts">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Content</th>
+            <th>Likes</th>
+            <th>View</th>
+            <th>Action</th>
+            <th>Like/Unlike</th>
+            <th>Add User</th>
+          </tr>
+        </thead>
+        <tbody id="postTableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="updatePostDynamic">
+      <form id="dynamicPostUpdateForm">
+        <div>
+          <label for="oldcontent">Old Content : </label>
+          <input type="text" name="oldcontent" id="oldcontent" readonly />
+        </div>
+
+        <div>
+          <label for="newcontent">New Content : </label>
+          <input type="text" name="newcontent" id="newcontent" required />
+        </div>
+
+        <div>
+          <input type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script src="/scripts/posts.js" type="module"></script>

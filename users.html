@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <title>Users page</title>
+    <style>
+      .postForm {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #createUserDiv,
+      #updateUserDiv {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="createupdatebuttons">
+      <button id="createUserButton">Create User</button>
+      <button id="updateUserButton">Update User</button>
+    </div>
+
+    <div id="createUserDiv">
+      <form id="userPostForm" class="forms">
+        <div class="formHeader">
+          <h1>Create User</h1>
+          <button id="closeCreateUser">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="name">Name : </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter Name"
+            required
+          />
+        </div>
+
+        <div class="formBody">
+          <label for="email">Email : </label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter Email"
+            required
+          />
+        </div>
+
+        <div class="formBody">
+          <label for="bio">Bio : </label>
+          <input
+            type="text"
+            name="bio"
+            id="bio"
+            placeholder="Enter Bio"
+            required
+          />
+        </div>
+
+        <div>
+          <input class="formsInput" type="submit" value="Create" />
+        </div>
+      </form>
+    </div>
+
+    <div id="updateUserDiv">
+      <form id="userUpdateForm" class="forms">
+        <div class="formHeader">
+          <h1>Update User</h1>
+          <button id="closeUpdateUser">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="id">Id : </label>
+          <input
+            type="number"
+            name="id"
+            id="updateId"
+            required
+            placeholder="Enter user Id"
+          />
+        </div>
+
+        <div class="formBody">
+          <label for="name">Name : </label>
+          <input
+            type="text"
+            name="name"
+            id="updateName"
+            required
+            placeholder="Enter updated name"
+          />
+        </div>
+
+        <div class="formBody">
+          <label for="bio">Bio : </label>
+          <input
+            type="text"
+            name="bio"
+            id="updateBio"
+            required
+            placeholder="Enter updated bio"
+          />
+        </div>
+
+        <div>
+          <input class="formsInput" type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+
+    <div id="getAllUsers">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Bio</th>
+            <th>View Posts</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<script src="scripts/users.js" type="module"></script>

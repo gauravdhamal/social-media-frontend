@@ -1,0 +1,170 @@
+/* Table common css */
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.tableButton {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: teal;
+  border: 1px solid teal;
+  color: white;
+  cursor: pointer;
+}
+
+#tableInput {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 120px;
+}
+
+/* Post/User analytics page CSS start */
+
+.mainContent {
+  box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: 1px solid rebeccapurple; */
+  background-color: rgb(144, 155, 113);
+}
+
+.mainContent button {
+  box-sizing: border-box;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid gray;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+/* Post/User analytics page CSS end */
+
+/* Create/Update button CSS start */
+
+.createupdatebuttons {
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.createupdatebuttons button {
+  box-sizing: border-box;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Create/Update button CSS END */
+
+/* forms Header css Start */
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formHeader h1 {
+  text-align: center;
+  width: 90%;
+  /* border: 1px solid orange; */
+}
+
+.formHeader button {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 100%;
+  width: 10%;
+  border: 1px solid black;
+}
+
+/* forms Header css End */
+
+/* Create/Update forms CSS start */
+
+.forms {
+  /* display: none; */
+  height: auto;
+  width: 35%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 40px;
+  border-radius: 50px;
+  /* border: 1px solid red; */
+  background-color: wheat;
+}
+
+/* Create/Update forms CSS end */
+
+/* Forms Body CSS Start */
+
+.formBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 15px 0px;
+}
+
+.formBody :nth-child(1) {
+  /* border: 1px solid red; */
+  width: 40%;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 18px;
+}
+.formBody :nth-child(2) {
+  border: 1px solid gray;
+  width: 60%;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.formsInput {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 30px;
+  margin: auto;
+  cursor: pointer;
+  display: block;
+}
+
+/* Forms Body CSS End */

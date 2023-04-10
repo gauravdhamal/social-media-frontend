@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <title>User analytics</title>
+    <style>
+      #topFiveUsers,
+      #allUsers {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div id="mainContent" class="mainContent">
+      <button id="getAllUsers">Get all users</button>
+      <button id="getTopFiveMostActiveUsers">Top 5 most active users</button>
+    </div>
+
+    <div id="topFiveUsers">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Bio</th>
+            <th>Total Posts</th>
+          </tr>
+        </thead>
+        <tbody id="topUserTableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="allUsers">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Bio</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<script src="scripts/useranalytics.js" type="module"></script>
