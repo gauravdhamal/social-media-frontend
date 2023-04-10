@@ -10,7 +10,8 @@
     <style>
       #createPostDiv,
       #updatePostDiv,
-      #updatePostDynamic {
+      #updatePostDynamic,
+      #getUserDynamic {
         display: none;
       }
     </style>
@@ -118,6 +119,35 @@
           <input class="formsInput" type="submit" value="Update" />
         </div>
       </form>
+    </div>
+
+    <div id="getUserDynamic">
+      <div class="forms">
+        <div class="formHeader">
+          <h1>User Details</h1>
+          <button id="closeGetUserDynamic">X</button>
+        </div>
+
+        <div class="formBody">
+          <label for="id">Id : </label>
+          <p id="userId" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="name">Name : </label>
+          <p id="userName" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="email">Email : </label>
+          <p id="userEmail" style="border: none"></p>
+        </div>
+
+        <div class="formBody">
+          <label for="bio">Bio : </label>
+          <p id="userBio" style="border: none"></p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

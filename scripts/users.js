@@ -168,6 +168,13 @@ closeDynamicUpdateUser.addEventListener("click", () => {
   updateUserDynamic.style.display = "none";
 });
 
+let getPostsByUser = document.getElementById("getPostsByUser");
+
+let getPostsByUserClose = document.getElementById("getPostsByUserClose");
+getPostsByUserClose.addEventListener("click", () => {
+  getPostsByUser.style.display = "none";
+});
+
 let appendUsers = (arrayOfUsers) => {
   let userTableBody = document.getElementById("userTableBody");
   userTableBody.innerHTML = "";
@@ -200,6 +207,8 @@ let appendUsers = (arrayOfUsers) => {
       let userId = idCell.textContent;
       getAllPostsByUserId(userId).then((data) => {
         console.log("data:", data);
+        getPostsByUser.style.display = "block";
+        appendPosts(data);
       });
     });
 
@@ -265,6 +274,28 @@ let appendUsers = (arrayOfUsers) => {
     });
 
     userTableBody.appendChild(row);
+  });
+};
+
+let appendPosts = (arrayOfPosts) => {
+  let getAllPostTableBody = document.getElementById("getAllPostTableBody");
+  getAllPostTableBody.innerHTML = "";
+  arrayOfPosts.forEach((post) => {
+    const row = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    idCell.textContent = post.id;
+    row.appendChild(idCell);
+
+    const contentCell = document.createElement("td");
+    contentCell.textContent = post.content;
+    row.appendChild(contentCell);
+
+    const likesCell = document.createElement("td");
+    likesCell.textContent = post.likes;
+    row.appendChild(likesCell);
+
+    getAllPostTableBody.appendChild(row);
   });
 };
 

@@ -2,6 +2,7 @@ import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
+// let commonUrl = "http://localhost:8888/";
 let commonUrl = "https://social-media-backend-production-a70f.up.railway.app/";
 
 let createPostButton = document.getElementById("createPostButton");
@@ -135,6 +136,7 @@ let updatePost = (postObject) => {
 // Get all posts
 async function main() {
   let data = await getAllPosts();
+  console.log("data:", data);
   appendPosts(data);
 }
 
@@ -143,8 +145,8 @@ main();
 // Get all posts
 async function getAllPosts() {
   let response = await fetch(commonUrl + `analytics/posts`);
-  let data = await response.json();
   if (response.status == 200) {
+    let data = await response.json();
     return data;
   } else {
     console.log(response);
@@ -159,6 +161,18 @@ let closeUpdateUser = document.getElementById("closeUpdateUser");
 closeUpdateUser.addEventListener("click", () => {
   updatePostDynamic.style.display = "none";
 });
+
+let getUserDynamic = document.getElementById("getUserDynamic");
+
+let closeGetUserDynamic = document.getElementById("closeGetUserDynamic");
+closeGetUserDynamic.addEventListener("click", () => {
+  getUserDynamic.style.display = "none";
+});
+
+let userId = document.getElementById("userId");
+let userName = document.getElementById("userName");
+let userEmail = document.getElementById("userEmail");
+let userBio = document.getElementById("userBio");
 
 let appendPosts = (arrayOfPosts) => {
   let postTableBody = document.getElementById("postTableBody");
@@ -191,6 +205,11 @@ let appendPosts = (arrayOfPosts) => {
           window.alert(`No any user assigned to post : ${postId}`);
         } else {
           console.log("user:", user);
+          getUserDynamic.style.display = "block";
+          userId.innerText = user.id;
+          userName.innerText = user.name;
+          userEmail.innerText = user.email;
+          userBio.innerText = user.bio;
         }
       });
     });

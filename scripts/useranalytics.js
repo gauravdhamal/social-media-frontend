@@ -2,6 +2,7 @@ import navbar from "../components/navbar.js";
 
 document.getElementById("navbar").innerHTML = navbar();
 
+// let commonUrl = "http://localhost:8888/";
 let commonUrl = "https://social-media-backend-production-a70f.up.railway.app/";
 
 let getTopFiveMostActiveUsers = document.getElementById(
@@ -50,6 +51,10 @@ let appendTopFiveUsers = (users) => {
     const bioCell = document.createElement("td");
     bioCell.textContent = user.bio;
     row.appendChild(bioCell);
+
+    const totalPostCell = document.createElement("td");
+    totalPostCell.textContent = user.totalPosts;
+    row.appendChild(totalPostCell);
 
     topUserTableBody.appendChild(row);
   });

@@ -15,7 +15,8 @@
 
       #createUserDiv,
       #updateUserDiv,
-      #updateUserDynamic {
+      #updateUserDynamic,
+      #getPostsByUser {
         display: none;
       }
     </style>
@@ -167,6 +168,26 @@
           <input class="formsInput" type="submit" />
         </div>
       </form>
+    </div>
+
+    <div id="getPostsByUser">
+      <div class="forms">
+        <div class="formHeader">
+          <h1>All posts</h1>
+          <button id="getPostsByUserClose">X</button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Content</th>
+              <th>Likes</th>
+            </tr>
+          </thead>
+          <tbody id="getAllPostTableBody"></tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
