@@ -206,9 +206,11 @@ let appendUsers = (arrayOfUsers) => {
     viewPostsButton.addEventListener("click", () => {
       let userId = idCell.textContent;
       getAllPostsByUserId(userId).then((data) => {
-        console.log("data:", data);
-        getPostsByUser.style.display = "block";
-        appendPosts(data);
+        if (data != undefined) {
+          console.log("data:", data);
+          getPostsByUser.style.display = "block";
+          appendPosts(data);
+        }
       });
     });
 
